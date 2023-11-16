@@ -56,6 +56,7 @@ void pall(stack_t **head, unsigned int number);
 void pint(stack_t **head, unsigned int number);
 int op_execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void pop(stack_t **head, unsigned int counter);
+void swap(stack_t **head, unsigned int counter);
 void free_stack(stack_t *head);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
