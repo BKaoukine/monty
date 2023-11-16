@@ -1,75 +1,45 @@
 #include "monty.h"
-exte_var glob_var = {NULL, NULL, 0, 0};
+file_info finfo = {NULL, NULL, NULL, 0};
 /**
- * instruction - calls the right function
- * @opcode: the command
- * @stack: head of the list
- * @lNum: line number
- * Return: 0 for success
- */
-int instruction(char *opcode, stack_t **stack, unsigned int lNum)
-{
-unsigned int i = 0;
-instruction_t opstruct[] = {
-{"push", push},
-{"pall", pall},
-{"pint", pint},
-{NULL, NULL}
-};
-
-while (opstruct[i].opcode)
-{
-if (strcmp(opcode, opstruct[i].opcode) == 0)
-{
-opstruct[i].f(stack, lNum);
-return (0);
-}
-i++;
-}
-
-fprintf(stderr, "L%d: unknown instruction %s\n", lNum, opcode);
-return (1);
-}
-
-/**
- * main - main entry
- * @argc: arg count
- * @argv: arg vector
- * Return: EXIT_SUCCESS
- */
+* main - monty code interpreter
+* @argc: number of arguments
+* @argv: monty file location
+* Return: 0 on success
+*/
 int main(int argc, char *argv[])
 {
+char *content;
 FILE *file;
-char *opcode;
+size_t size = 0;
+ssize_t read_line = 1;
 stack_t *stack = NULL;
-int n;
+unsigned int counter = 0;
 
 if (argc != 2)
 {
-fprintf(stderr, "USAGE: %s file\n", argv[0]);
+fprintf(stderr, "USAGE: monty file\n");
 exit(EXIT_FAILURE);
 }
-
 file = fopen(argv[1], "r");
+finfo.file = file;
 if (!file)
 {
 fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 exit(EXIT_FAILURE);
 }
-
-while ((opcode = readMontyInstruction(file)) != NULL)
+while (read_line > 0)
 {
-n = instruction(opcode, &stack, glob_var.lNum);
-if (n == 1)
+content = NULL;
+read_line = getline(&content, &size, file);
+finfo.content = content;
+counter++;
+if (read_line > 0)
 {
-_free_stack(stack);
-fclose(file);
-exit(EXIT_FAILURE);
+op_execute(content, &stack, counter, file);
 }
-free(opcode);
+free(content);
 }
-
+free_stack(stack);
 fclose(file);
-
 return (0);
 }

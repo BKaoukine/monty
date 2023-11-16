@@ -1,70 +1,37 @@
 #include "monty.h"
-
 /**
- * is_digit - checks if it's a digit
- * @c: the one to be checked
- * Return: the digit
- */
-int is_digit(char c)
+ * push - add node to the stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void push(stack_t **head, unsigned int counter)
 {
-return (c >= '0' && c <= '9');
-}
+int n, j = 0, flag = 0;
 
-/**
- * is_valid_number - checks if valid
- * @str: the one to be checked
- * Return: 0 or 1
- */
-int is_valid_number(const char *str)
+if (finfo.arg)
 {
-if (*str == '-' || *str == '+')
+if (finfo.arg[0] == '-')
+j++;
+for (; finfo.arg[j] != '\0'; j++)
 {
-str++;
-}
-
-while (*str)
-{
-if (!is_digit(*str))
-return (0);
-
-str++;
-}
-
-return (1);
-}
-
-/**
- * is_valid_integer - checks if it's a valid integer
- * @str: the one to be checked
- * Return: 0 or 1
- */
-int is_valid_integer(const char *str)
-{
-int value;
-return (sscanf(str, "%d", &value) == 1);
-}
-
-/**
- * push - prints all the elements of a doubly linked list.
- * @head: head of the list
- * @lNum: line number
- */
-void push(stack_t **head, unsigned int lNum)
-{
-int int_val;
-
-if (!is_valid_integer(glob_var.argv))
-{
-fprintf(stderr, "L%d: usage: push integer\n", lNum);
-fclose(glob_var.file);
-_free_stack(*head);
-exit(EXIT_FAILURE);
-}
-
-sscanf(glob_var.argv, "%d", &int_val);
-
-if (glob_var.fifo == 0)
-node_start_add(head, int_val);
+if (finfo.arg[j] > 57 || finfo.arg[j] < 48)
+flag = 1; }
+if (flag == 1)
+{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+fclose(finfo.file);
+free(finfo.content);
+free_stack(*head);
+exit(EXIT_FAILURE); }}
 else
-node_end_add(head, int_val);
+{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+fclose(finfo.file);
+free(finfo.content);
+free_stack(*head);
+exit(EXIT_FAILURE); }
+n = atoi(finfo.arg);
+if (finfo.lifi == 0)
+addnode(head, n);
+else
+addqueue(head, n);
 }

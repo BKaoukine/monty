@@ -11,8 +11,8 @@ void pint(stack_t **head, unsigned int lNum)
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", lNum);
-		fclose(glob_var.file);
-		_free_stack(*head);
+		fclose(finfo.file);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*head)->n);
