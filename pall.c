@@ -3,6 +3,7 @@
 /**
  *pall - prints all the elements of a doubly linked list.
  *@head: head of the list
+ *@lNum: not used
  */
 
 void pall(stack_t **head, __attribute__ ((unused)) unsigned int lNum)
