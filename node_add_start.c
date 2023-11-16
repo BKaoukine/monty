@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- *add_node - adds a node at the beginning
+ *node_start_add - adds a node at the beginning
  *@head: head of the list
  *@n: data of the node
  *Return: a pointer to the new head

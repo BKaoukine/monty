@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- *add_node_end - adds a nod at the end
+ *node_end_add - adds a nod at the end
  *@head: head of the list
  *@n: data
  *Return: a pointer
