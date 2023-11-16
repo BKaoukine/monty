@@ -58,8 +58,7 @@ int op_execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void pop(stack_t **head, unsigned int counter);
 void swap(stack_t **head, unsigned int counter);
 void nop(stack_t **head, unsigned int counter);
+void add(stack_t **head, unsigned int counter);
 void free_stack(stack_t *head);
-void addnode(stack_t **head, int n);
-void addqueue(stack_t **head, int n);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 #endif
