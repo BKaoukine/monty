@@ -14,6 +14,7 @@ int instruction(char *opcode, stack_t **stack, unsigned int lNum)
     instruction_t opstruct[] = {
         {"push", push},
         {"pall", pall},
+        {"pint", pint},
         {NULL, NULL}
     };
 

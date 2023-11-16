@@ -62,5 +62,6 @@ void pall(stack_t **head, unsigned int lNum);
 void push(stack_t **head, unsigned int lNum);
 void node_start_add(stack_t **head, int n);
 void node_end_add(stack_t **head, int n);
+void pint(stack_t **head, unsigned int lNum);
 
 #endif
