@@ -14,6 +14,7 @@ instruction_t opst[] = {
 {"push", push},
 {"pall", pall},
 {"pint", pint},
+{"pop", pop},
 {NULL, NULL}
 };
 unsigned int i = 0;
