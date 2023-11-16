@@ -16,6 +16,7 @@ instruction_t opst[] = {
 {"pint", pint},
 {"pop", pop},
 {"swap", swap},
+{"nop", nop},
 {NULL, NULL}
 };
 unsigned int i = 0;
