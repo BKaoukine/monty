@@ -5,7 +5,7 @@
  *@head: head of the list
  */
 
-void pall(stack_t **head)
+void pall(stack_t **head, __attribute__ ((unused)) unsigned int lNum)
 {
 	stack_t *current = *head;
 

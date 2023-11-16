@@ -57,9 +57,10 @@ extern exte_var glob_var;
 
 /*Custom functions*/
 char* readMontyInstruction(FILE *file);
-void pall(stack_t **head);
+void _free_stack(stack_t *head);
+void pall(stack_t **head, unsigned int lNum);
 void push(stack_t **head, unsigned int lNum);
-void add_node(stack_t **head, int n);
-
+void node_start_add(stack_t **head, int n);
+void node_end_add(stack_t **head, int n);
 
 #endif

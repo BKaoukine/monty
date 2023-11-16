@@ -6,7 +6,7 @@
  *Return: a pointer
  */
 
-void add_node_end(stack_t **head, int n)
+void node_end_add(stack_t **head, int n)
 {
 	stack_t *temp, *end;
 

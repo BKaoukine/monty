@@ -18,7 +18,7 @@ if (read == -1 || feof(file))
 {
 free(instruction);
 return (NULL);
-
+}
 if (instruction[read - 1] == '\n')
 {
 instruction[read - 1] = '\0';

@@ -7,7 +7,7 @@
  *Return: a pointer to the new head
  */
 
-void add_node(stack_t **head, int n)
+void node_start_add(stack_t **head, int n)
 {
 	stack_t *temp;
 

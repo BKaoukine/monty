@@ -51,19 +51,20 @@ return (sscanf(str, "%d", &value) == 1);
  */
 void push(stack_t **head, unsigned int lNum)
 {
+int int_val;
+
 if (!is_valid_integer(glob_var.argv))
 {
 fprintf(stderr, "L%d: usage: push integer\n", lNum);
 fclose(glob_var.file);
-free_stack(*head);
+_free_stack(*head);
 exit(EXIT_FAILURE);
 }
 
-int int_val;
 sscanf(glob_var.argv, "%d", &int_val);
 
 if (glob_var.fifo == 0)
-add_node(head, int_val);
+node_start_add(head, int_val);
 else
-add_node_end(head, int_val);
+node_end_add(head, int_val);
 }
