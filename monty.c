@@ -1,4 +1,6 @@
 #include "monty.h"
+exte_var glob_var = {NULL, NULL, 0, 0};
+
 /**
  *instruction - calls the right function
 *@opcode: the command
