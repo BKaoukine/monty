@@ -18,6 +18,7 @@ instruction_t opst[] = {
 {"swap", swap},
 {"nop", nop},
 {"add", add},
+{"sub", sub},
 {NULL, NULL}
 };
 unsigned int i = 0;
