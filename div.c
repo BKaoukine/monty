@@ -1,19 +1,18 @@
 #include "monty.h"
 /**
- *op_div- Dividing two elements of stack
-*@head: stack head
-*@counter: line_number
-*Return: no return
-*/
+ * op_div - Dividing two elements of stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+ */
 void op_div(stack_t **head, unsigned int counter)
 {
 stack_t *aux;
-int sus, nodes;
+int quotient, divisor;
 
 aux = *head;
-for (nodes = 0; aux != NULL; nodes++)
-aux = aux->next;
-if (nodes < 2)
+
+if (aux == NULL || aux->next == NULL)
 {
 fprintf(stderr, "L%d: can't div, stack too short\n", counter);
 fclose(finfo.file);
@@ -21,8 +20,8 @@ free(finfo.content);
 free_stack(*head);
 exit(EXIT_FAILURE);
 }
-aux = *head;
-if (aux->next->n == 0)
+
+if (aux->n == 0)
 {
 fprintf(stderr, "L%d: division by zero\n", counter);
 fclose(finfo.file);
@@ -30,8 +29,13 @@ free(finfo.content);
 free_stack(*head);
 exit(EXIT_FAILURE);
 }
-sus = aux->n / aux->next->n;
-aux->next->n = sus;
-*head = aux->next;
-free(aux);
+
+divisor = aux->n;
+aux = aux->next;
+
+quotient = aux->n / divisor;
+aux->n = quotient;
+*head = aux;
+
+free(*head);
 }
