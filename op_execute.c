@@ -19,6 +19,7 @@ instruction_t opst[] = {
 {"nop", nop},
 {"add", add},
 {"sub", sub},
+{"div", div},
 {NULL, NULL}
 };
 unsigned int i = 0;

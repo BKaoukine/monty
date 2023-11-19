@@ -60,6 +60,7 @@ void swap(stack_t **head, unsigned int counter);
 void nop(stack_t **head, unsigned int counter);
 void add(stack_t **head, unsigned int counter);
 void sub(stack_t **head, unsigned int counter);
+void div(stack_t **head, unsigned int counter);
 void free_stack(stack_t *head);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
